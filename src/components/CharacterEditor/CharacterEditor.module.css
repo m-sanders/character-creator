@@ -1,15 +1,30 @@
 .characterEditor {
-  padding-top: 128px;
+  padding-top: 64px;
   padding-bottom: 64px;
+}
+
+@media (min-width: 1024px) {
+  .characterEditor {
+    padding-top: 128px;
+  }
 }
 
 .maxWidthWrapper {
   position: relative;
+  overflow: hidden;
 }
 
 .header {
-  padding-bottom: 64px;
-  width: 65%;
+  padding-bottom: 32px;
+  max-width: 450px;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    max-width: 100%;
+    width: 65%;
+    padding-bottom: 64px;
+  }
 }
 
 .title {
@@ -26,17 +41,31 @@
 }
 
 .characterWrapper {
-  min-height: 500px;
-  margin: auto;
-  max-width: 500px;
-  position: fixed;
-  top: 144px;
-  left: 50%;
+  z-index: -1;
+  top: 320px;
+  left: 0;
   right: 0;
-  width: 40%;
+  margin: auto;
+  position: absolute;
+  width: 100%;
+  height: 60vh;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .characterWrapper {
+    position: fixed;
+    min-height: 500px;
+    max-width: 500px;
+    top: 144px;
+    width: 40%;
+    left: 50%;
+  }
 }
 
 .background {
+  z-index: -1;
   position: fixed;
   background-color: hsl(195deg, 20%, 86%);
   right: 0;
@@ -46,6 +75,33 @@
   width: 100%;
 }
 
+@media (min-width: 1024px) {
+  .background {
+    display: block;
+  }
+}
+
 .controlColumn {
-  width: 50%;
+  position: relative;
+  left: 0px;
+  padding-top: 350px;
+  display: flex;
+  column-gap: 24px;
+  width: calc(100% + 64px);
+  overflow: auto;
+  /* Position the controls to the edge on mobile, escape the max width wrapper padding */
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-left: -32px;
+  margin-right: -32px;
+}
+
+@media (min-width: 1024px) {
+  .controlColumn {
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 50%;
+    overflow: hidden;
+  }
 }
